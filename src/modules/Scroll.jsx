@@ -2,37 +2,39 @@ import React from 'react'
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Scroll = () =>{
-
-const items = ['item1', 'item2', 'item3']
   
-  return(
-    <div>
-      <InfiniteScroll
-        dataLength={items.length} //This is important field to render the next data
-        next={fetchData}
-        hasMore={true}
-        loader={<h4>Loading...</h4>}
-        endMessage={
-          <p style={{ textAlign: 'center' }}>
-            <b>Yay! You have seen it all</b>
-          </p>
-        }
-        // below props only if you need pull down functionality
-        refreshFunction={this.refresh}
-        pullDownToRefresh
-        pullDownToRefreshThreshold={50}
-        pullDownToRefreshContent={
-          <h3 style={{ textAlign: 'center' }}>&#8595; Pull down to refresh</h3>
-        }
-        releaseToRefreshContent={
-          <h3 style={{ textAlign: 'center' }}>&#8593; Release to refresh</h3>
-        }
-      >
-        {items}
-      </InfiniteScroll>
+  const [photos, setPhotos] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [fetching, setFetching] = useState(true)
 
-    </div>
-  )
-}
+
+
+  useEffect(() =>{
+    if(fetching){
+      console.log('fetching')
+      axios.get(`https://jsonplaceholder.typicode.com/photos?_limit=10&_page=${currentPage}`)
+        .then(response => {
+        setPhotos([...photos, ...response.data])
+        setCurrentPage(prevState => prevState + 1)
+        })
+        .finally(() => setFetching(false))
+    }
+
+  }, [fetching])
+
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler)
+
+    return function (){
+      document.removeEventListener('scroll', scrollHandler)
+    }
+  }, [])
+
+  const scrollHandler = (e) =>{
+    if(e.target.documentElement.scrollHeight-    (e.target.documentElement.scrollTop + window.innerHeight) < 100){
+      setFetching(true)
+    }
+  }
 
 export default Scroll;

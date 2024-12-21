@@ -1,2 +1,9 @@
-main {
+main-container{
+  align-content: center;
+  background-color: #21206a;
+}
+
+.footer-wrapper{
+  display: flex;
+  justify-content: space-between;
 }
