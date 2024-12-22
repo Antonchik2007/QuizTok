@@ -8,15 +8,14 @@ export default function App() {
   return (
     <main>
       <div className='main-container'>
-        <div className='Header'>
+        <div className='header'>
           <h1>QuizTok</h1>
-          <hr/>
         </div>
+        <hr/>
         <div className='main-content-wrapper'>
           <Card/>
         </div>
         <div className='footer-wrapper'>
-        <hr/>
           <h3>1st</h3>
           <h3>2nd</h3>
           <h3>3rd</h3>

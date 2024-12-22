@@ -1,9 +1,21 @@
-main-container{
+.main-container{
   align-content: center;
-  background-color: #21206a;
+  background-color: #2f2f2f;
 }
 
 .footer-wrapper{
   display: flex;
   justify-content: space-between;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+p, h1, h2, h3, h4, h5 {
+  color: #E0E0E0; /* Light Gray */
+  font-family: 'Times New Roman', Times, serif;
 }
