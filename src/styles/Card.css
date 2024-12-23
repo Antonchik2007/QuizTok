@@ -5,6 +5,9 @@
     padding: 20px;
     box-sizing: border-box;
     background-color: #1B1B1B; /* Very Dark Gray */
+    width: 100%;
+    scroll-snap-align: start; /* Snap each section to the start */
+    height: 100%; /* Match the container height */
   }
 .card-answer-options{
     display: grid;
@@ -24,16 +27,26 @@
     justify-content: center;
     align-items: center;
     display: grid;
+    max-height: 13vh;
 }
 .question-word-wrapper{
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center;
     min-width: 200px;
+    padding: 0px;
+    
 }
 .question-wrapper{
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center;
     min-width: 200px;
+}
+.question-text{
+    font-size: 3rem;
+    margin-bottom: 1vh;
+}
+.question-word{
+    margin-bottom: 1vh;
 }

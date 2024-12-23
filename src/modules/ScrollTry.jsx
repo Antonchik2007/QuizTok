@@ -17,8 +17,10 @@ const ScrollTry = ({pageProps}) => {
             }
         }
         fetchAnswers();
-    }, [])
+    }, []) //function for getting data from the API
     
+
+
 
     return(
         <div>
