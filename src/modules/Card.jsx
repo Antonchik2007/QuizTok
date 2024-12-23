@@ -5,7 +5,6 @@ import CardAnswerOption from './CardAnswerOption'
 const Card = ({pageProps}) => {
 
 const [pageData, setPageData, currentPage, setCurrentPage] = pageProps;
-const cardWrapperRef = useRef(null);
 
 
 

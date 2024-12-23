@@ -6,7 +6,7 @@ const Scroll = () =>{
   const [photos, setPhotos] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [fetching, setFetching] = useState(true)
-
+  
 
 
   useEffect(() =>{
