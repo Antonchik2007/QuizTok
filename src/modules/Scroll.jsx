@@ -12,7 +12,7 @@ const Scroll = () =>{
   useEffect(() =>{
     if(fetching){
       console.log('fetching')
-      axios.get(`https://jsonplaceholder.typicode.com/photos?_limit=10&_page=${currentPage}`)
+      axios.get(`https://antonchik2007.github.io/DataBase/`)
         .then(response => {
         setPhotos([...photos, ...response.data])
         setCurrentPage(prevState => prevState + 1)
@@ -36,5 +36,5 @@ const Scroll = () =>{
       setFetching(true)
     }
   }
-
+}
 export default Scroll;

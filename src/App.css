@@ -1,10 +1,20 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Disable scrolling */
+}
 .main-container{
   align-content: center;
   background-color: #2f2f2f;
+  height: 100vh;
 }
 
 .footer-wrapper{
   display: flex;
+  margin: 20px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 25px;
   justify-content: space-between;
 }
 
