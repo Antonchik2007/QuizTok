@@ -1,6 +1,7 @@
 {
   "name": "react-javascript",
   "version": "1.0.0",
+  "homepage": "https://antonchik2007.github.io/QuizTok",
   "type": "module",
   "description": "React TypeScript on Replit, using Vite bundler",
   "scripts": {
