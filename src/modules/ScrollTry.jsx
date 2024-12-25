@@ -7,7 +7,7 @@ const ScrollTry = ({pageProps}) => {
     useEffect(() => {
         const fetchAnswers = async () => {
             try{
-                const response = await axios.get('https://antonchik2007.github.io/DataBase/db.json')
+                const response = await axios.get('https://antonchik2007.github.io/DataBase/dataForApp/Math/AP%20preCalc/FunctionsAndGraphs.json')
                 setPageData(response.data);
                 console.log(pageData)
                 

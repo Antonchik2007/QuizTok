@@ -9,6 +9,7 @@
     scroll-snap-align: start; /* Snap each section to the start */
     height: 100%; /* Match the container height */
   }
+
 .card-answer-options{
     display: grid;
     align-items: center;
@@ -42,11 +43,16 @@
     justify-content: center; /* Center horizontally */
     align-items: center;
     min-width: 200px;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 .question-text{
-    font-size: 3rem;
-    margin-bottom: 1vh;
+    font-size: 1.5rem;
 }
 .question-word{
     margin-bottom: 1vh;
+    font-size: 1.5rem;
+}
+.card-bottom{
+    margin-top: 5vh;
 }

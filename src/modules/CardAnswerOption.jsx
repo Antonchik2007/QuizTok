@@ -1,10 +1,11 @@
 import React, {useEffect, useRef, useState} from "react";
 import './../styles/CardAnswerOption.css'
+import confetti from 'canvas-confetti'; 
 
-const CardAnswerOption = ({answerNumber, answerText}) => {
+const CardAnswerOption = ({answerNumber, answerText, pageData, pageIndex, setIsTinted}) => {
 
     const answerTextRef = useRef(null);
-
+    const cardAnswerOption = useRef(null);
 
     const [questionOption, setQuestionOption] = useState(' ')
    
@@ -32,17 +33,19 @@ const CardAnswerOption = ({answerNumber, answerText}) => {
 
     useEffect(() => {
         const textLength = answerText.length
-        let fontSize = '5rem' // Default font size
-        let marginR = '10vw'
+        let fontSize = '1.5rem' // Default font size
+        let marginR = '5vw'
         if (textLength > 80) {
-          fontSize = '2.5rem';
+          fontSize = '1rem';
+          marginR = '2vw';
         } else if (textLength > 40) {
-          fontSize = '3rem';
+          fontSize = '1rem';
+          marginR = '2vw';
         } else if (textLength > 20) {
-          fontSize = '4rem';
-          marginR = '35vw';
+          fontSize = '1.3rem';
+          marginR = '5vw';
         }else if (textLength < 20) {
-          marginR = '25vw';
+          marginR = '10vw';
         }
     
         if (answerTextRef.current) {
@@ -51,10 +54,31 @@ const CardAnswerOption = ({answerNumber, answerText}) => {
         }
       }, [answerText])
 
+
+      const checkAnswer = () => {
+        
+        if(answerText === pageData?.correctAnswers?.[`item${pageIndex}`]){ 
+          if (cardAnswerOption.current) {
+            cardAnswerOption.current.style.backgroundColor = 'green'
+            confetti({
+              particleCount: 300,
+              spread: 140,
+              startVelocity: 45,
+              origin: {y: 0.6}
+            })
+          }
+        }
+        else{  
+          if (cardAnswerOption.current) {
+            cardAnswerOption.current.style.backgroundColor = 'red'
+          }
+        }
+      }
+
     return(
-        <div className="card-answer-option">
+        <div className="card-answer-option" onClick={checkAnswer} ref={cardAnswerOption}>
             <div className="select-answer-button-wrapper">
-                <button className='select-answer-button'>{questionOption}</button>
+                <p className='select-answer-button'>{questionOption}</p>
             </div>
             
             <div className="answer-text-wrapper">

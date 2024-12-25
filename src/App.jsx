@@ -13,10 +13,14 @@ export default function App() {
   const scrollableDivRef = useRef(null)
 
 
+
+
   const cards = Array.from({ length: pageCount }, (_, index) => (
-    <Card key={index} pageProps={pageProps} />
+    <Card key={index} pageProps={pageProps} pageIndex={index+1}/>
   ));
   
+
+
 
   useEffect(() => {
     
@@ -65,11 +69,12 @@ export default function App() {
   return (
     <main>
       <div className='main-container'>
+        <div className="secondary-container">
         <div className='header'>
           <ScrollTry pageProps={pageProps}/>
           <h1 className='app-title'>QuizTok</h1>
         </div>
-        <hr/>
+
         <div className='main-content-wrapper' ref={scrollableDivRef}> 
           {cards}
         </div>
@@ -80,7 +85,7 @@ export default function App() {
             <h3 className='footer-profile-button'>Profile</h3>
           </div>
         </div>
-        
+        </div>
       </div>
     </main>
   )
